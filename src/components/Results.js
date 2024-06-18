@@ -10,8 +10,6 @@ const Results = () => {
   // Get Iron sets from the product suggestions
   const products = [productSuggestions[0]?.recommendedProduct?.productSuggestion, productSuggestions[2]?.recommendedProduct?.productSuggestion]
 
-  const gripSize = customizations[10].slice(16)
-
   return (
     <div className="quiz-results-container">
       {customizations?.length > 0 ?
@@ -25,10 +23,10 @@ const Results = () => {
             Lie angle -
             <span className="font-bold lowercase"> {customizations[9]}. </span>
             Recommended grip size is 
-            <span className="font-bold lowercase"> {gripSize}. </span>
+            <span className="font-bold capitalize"> {customizations[10]}. </span>
           </h2>
         </div>
-        <ul role="list" className="product-suggestions mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <ul className="product-suggestions mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">
           {products.map((product, ix) => {
             return (
               <div key={product?.id} className="relative rounded-xl bg-gray-200 transition-shadow hover:shadow-md">

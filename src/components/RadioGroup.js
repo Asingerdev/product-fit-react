@@ -18,7 +18,7 @@ const RadioGroup = ({ questionId, answers }) => {
   }, [data, page, questionId])
 
   return (
-    <fieldset id={questionId} className="quiz-radio-group w-full flex flex-wrap gap-x-10 gap-y-5 mt-5">
+    <fieldset id={questionId} className="quiz-radio-group w-full grid grid-cols-3 gap-x-2 gap-y-5 md:gap-x-10 md:flex flex-wrap mt-5">
       {answers?.map((answer) => {
         return (
           <Radio

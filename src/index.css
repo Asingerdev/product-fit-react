@@ -40,11 +40,11 @@
   height: 0;
 }
 
-.custom-radio-label input[type=radio]:checked + .custom-radio-container, .custom-radio-label input[type=checkbox]:checked + .custom-checkbox-container {
+.custom-radio-label input[type=radio]:checked + .custom-radio-container, .custom-checkbox-label input[type=checkbox]:checked + .custom-checkbox-container {
   background: black;
 }
 
-.custom-radio-label input[type=radio]:checked + .custom-radio-container .custom-radio-icon, .custom-radio-label input[type=checkbox]:checked + .custom-checkbox-container .custom-checkbox-icon {
+.custom-radio-label input[type=radio]:checked + .custom-radio-container .custom-radio-icon, .custom-checkbox-label input[type=checkbox]:checked + .custom-checkbox-container .custom-checkbox-icon {
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
