@@ -9,14 +9,16 @@ function Quiz() {
   const { isSubmitted } = useFormContext()
 
   return (
-    <div className="quiz-wrapper">
+    <div className="quiz-container">
       {isSubmitted ? 
-        <Results />
+        <div className="results-wrapper">
+          <Results />
+        </div>
         :
-        <>
+        <div className="quiz-wrapper">
           <ProgressBar />
           <Form />
-        </>
+        </div>
         }
     </div>
   );

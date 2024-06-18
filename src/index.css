@@ -29,6 +29,11 @@
   margin: 0 auto;
 }
 
+.results-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
 .quiz-step-active {
   border: 1px solid white;
 }
