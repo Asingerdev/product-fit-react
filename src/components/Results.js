@@ -120,7 +120,7 @@ const Results = () => {
                 <h3 className="font-bold">7 Iron top line thickness</h3>
                 <p>8mm</p>
               </div>
-              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[0]?.handle}`}>
+              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[0]?.handle}`} target="_top">
                 View Set
               </a>
             </div>
@@ -181,7 +181,7 @@ const Results = () => {
                 <h3 className="font-bold">7 Iron top line thickness</h3>
                 <p>7mm</p>
               </div>
-              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[1]?.handle}`}>
+              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[1]?.handle}`} target="_top">
                 View Set
               </a>
             </div>
