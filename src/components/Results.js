@@ -41,7 +41,7 @@ const Results = () => {
               <span className="font-bold">graphite </span><span>shafts </span> 
             </>
             : 
-            <span>shafts in </span>}
+            <span>shafts </span>}
             {customizations[5] && (
               <>
                 <span> in</span>
@@ -51,7 +51,7 @@ const Results = () => {
             )}
             {customizations[9] && (
               <>
-                <span>Lie angle - </span>
+                <span>Lie angle </span>
                 <span className="font-bold"> {customizations[9]}. </span>
               </>
             )}
