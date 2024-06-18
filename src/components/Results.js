@@ -11,7 +11,10 @@ const Results = () => {
   })
 
   // Get Iron sets from the product suggestions
-  const products = productSuggestions.filter(product => product?.handle.includes('iron-set')).reverse()
+  const ironSet = productSuggestions.find(product => product?.handle === '01-iron-set')
+  const ironTSet = productSuggestions.find(product => product?.handle === '01t-iron-set')
+
+  const products = [ironSet, ironTSet]
 
   useEffect(() => {
     console.log(products)

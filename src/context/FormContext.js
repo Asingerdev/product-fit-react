@@ -85,6 +85,9 @@ export const FormProvider = ({ children }) => {
     const disableNext =
         (page === questions.length - 1) || !data[currentQuestionId]
 
+    const checkboxDisableNext = 
+        questions[page]?.node?.answerType === 'multiselect' && data[currentQuestionId]?.length < 3
+
     const prevHide = page === 0 && "remove-button"
 
     const nextHide = page === questions.length - 1 && "remove-button"
@@ -138,7 +141,8 @@ export const FormProvider = ({ children }) => {
             handleRangeChange, 
             handleCheckboxChange,
             disablePrev, 
-            disableNext, 
+            disableNext,
+            checkboxDisableNext, 
             prevHide, 
             nextHide, 
             submitHide, 
