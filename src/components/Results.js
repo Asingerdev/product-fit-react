@@ -10,6 +10,9 @@ const Results = () => {
     return product?.recommendedProduct?.productSuggestion
   })
 
+  // Find if graphite shaft recommended
+  const graphite = productSuggestions.some(product => product?.title.includes('Graphite'))
+
   // Get Iron sets from the product suggestions
   const ironSet = productSuggestions.find(product => product?.handle === '01-iron-set')
   const ironTSet = productSuggestions.find(product => product?.handle === '01t-iron-set')
@@ -17,7 +20,7 @@ const Results = () => {
   const products = [ironSet, ironTSet]
 
   useEffect(() => {
-    console.log(products)
+    console.log(graphite)
   }, [])
 
   return (
@@ -27,13 +30,37 @@ const Results = () => {
         <h2 className="mt-5 px-4 md:px-0 text-3xl font-bold">Here are your results:</h2>
         <div className="product-customization mt-5 px-4 md:px-0">
           <h2>Based on your answers, you should play
-            <span className="font-bold lowercase"> {customizations[8]} length </span>
-            shafts in
-            <span className="font-bold lowercase"> {customizations[5]} flex. </span>
-            Lie angle -
-            <span className="font-bold lowercase"> {customizations[9]}. </span>
-            Recommended grip size is 
-            <span className="font-bold capitalize"> {customizations[10]}. </span>
+            {customizations[8] && (
+              <>
+                <span className="font-bold lowercase"> {customizations[8]} </span>
+                <span>length </span>
+              </>
+            )}
+            {graphite ? 
+            <>
+              <span className="font-bold">graphite </span><span>shafts </span> 
+            </>
+            : 
+            <span>shafts in </span>}
+            {customizations[5] && (
+              <>
+                <span> in</span>
+                <span className="font-bold lowercase"> {customizations[5]} </span>
+                <span className="lowercase"> flex. </span>
+              </>
+            )}
+            {customizations[9] && (
+              <>
+                <span>Lie angle - </span>
+                <span className="font-bold"> {customizations[9]}. </span>
+              </>
+            )}
+            {customizations[10] && (
+              <>
+                <span>Recommended grip size is</span>
+                <span className="font-bold capitalize"> {customizations[10]}. </span>
+              </>
+            )}
           </h2>
         </div>
         <ul className="product-suggestions mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 h-full">
