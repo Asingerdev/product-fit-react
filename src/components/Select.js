@@ -20,10 +20,10 @@ const Select = ({ questionId, answers }) => {
   }, [data, page, questionId])
 
   return (
-    <select id={questionId} name={questionId} value={selectedValue} onChange={handleSelectChange} className="mt-5">
+    <select id={questionId} name={questionId} value={selectedValue} onChange={handleSelectChange} className="mt-5 w-fit pr-2 py-1 border-[1px] border-black">
       {answers?.map((answer) => {
         return (
-          <option value={answer?.node?.id}>{answer?.node?.text}</option>
+          <option key={answer?.node?.id} value={answer?.node?.id}>{answer?.node?.text}</option>
         )
       })}
     </select>

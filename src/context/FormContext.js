@@ -98,18 +98,20 @@ export const FormProvider = ({ children }) => {
         e.preventDefault()
 
         // Send email to Klaviyo
-        const data = {
+        const klaviyoData = {
             g: process.env.REACT_APP_KLAVIYO_LIST_ID,
             email: email ?? ''
         }
 
-        const urlData = new URLSearchParams(data)
+        const urlData = new URLSearchParams(klaviyoData)
         fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
             method: 'POST',
             body: urlData,
           }).then((response) => response.json()).then((res) => console.log(res))
         
         const selectedAnswers = Object.values(data).flat()
+
+        console.log(selectedAnswers)
 
         setLoading(true)
 
