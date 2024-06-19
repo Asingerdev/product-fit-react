@@ -1,6 +1,5 @@
 import '../index.css';
 import useFormContext from '../hooks/useFormContext';
-import {useEffect} from 'react'
 
 const Results = () => {
 

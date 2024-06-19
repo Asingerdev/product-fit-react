@@ -20,13 +20,16 @@ const Select = ({ questionId, answers }) => {
   }, [data, page, questionId])
 
   return (
-    <select id={questionId} name={questionId} value={selectedValue} onChange={handleSelectChange} className="mt-5 w-fit pr-2 py-1 border-[1px] border-black">
-      {answers?.map((answer) => {
-        return (
-          <option key={answer?.node?.id} value={answer?.node?.id}>{answer?.node?.text}</option>
-        )
-      })}
-    </select>
+    <>
+        <select id={questionId} name={questionId} value={selectedValue} onChange={handleSelectChange} className="mt-5 w-fit pr-2 py-1 border-[1px] border-black">
+          {answers?.map((answer) => {
+            return (
+              <option key={answer?.node?.id} value={answer?.node?.id}>{answer?.node?.text}</option>
+            )
+          })}
+        </select>
+        <img className="w-full h-auto object-cover mt-2" src={answers[0]?.node?.icon} alt="Wrist to floor measurement graphic" />
+    </>
   )
 }
 
