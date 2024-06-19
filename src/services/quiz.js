@@ -16,6 +16,7 @@ export const api = new Client();
           edges: {
             node: {
               answerType: true,
+              resultType: true,
               description: true,
               id: true,
               text: true,

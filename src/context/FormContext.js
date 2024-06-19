@@ -109,13 +109,16 @@ export const FormProvider = ({ children }) => {
             body: urlData,
           }).then((response) => response.json()).then((res) => console.log(res))
         
-        const selectedAnswers = Object.values(data).flat()
+        const selectedQuestions = questions?.filter(question => question?.node?.resultType === 'age' || question?.node?.resultType === 'gender' || question?.node?.resultType === 'handicap')
+        console.log(selectedQuestions)
+        const selectedAnswerIds = selectedQuestions?.map(question => data[question?.node?.id])
 
-        console.log(selectedAnswers)
+        console.log(selectedAnswerIds)
+        console.log(selectedAnswerIds)
 
         setLoading(true)
 
-        const response = await fetchRecommendedProducts(selectedAnswers)
+        const response = await fetchRecommendedProducts(selectedAnswerIds)
 
         if (!response) return
 

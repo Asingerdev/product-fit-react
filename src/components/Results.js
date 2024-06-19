@@ -13,10 +13,7 @@ const Results = () => {
   const graphite = productSuggestions.some(product => product?.title.includes('Graphite'))
 
   // Get Iron sets from the product suggestions
-  const ironSet = productSuggestions.find(product => product?.handle === '01-iron-set')
-  const ironTSet = productSuggestions.find(product => product?.handle === '01t-iron-set')
-
-  const products = [ironSet, ironTSet]
+  const product = productSuggestions.find(product => !product?.title.includes('Graphite'))
 
   return (
     <div className="quiz-results-container">
@@ -58,74 +55,76 @@ const Results = () => {
             )}
           </h2>
         </div>
-        <ul className="product-suggestions mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 h-full">
-          <div className="border-[1px] border-slate-200">
-            <div className="p-6 h-full">
-              <div className="mt-4 w-full flex justify-center">
-                <img className="w-full max-w-44 h-auto object-cover" src={products[0]?.images?.edges[3]?.node?.source} />
-              </div>
-              <h2 className="text-center font-bold mt-4 text-lg">{products[0]?.title}</h2>
-              <div class="flex gap-6 mt-8">
-                <h3 className="font-bold">Type</h3>
-                <p>Distance Iron</p>
-              </div>
-              <div className="mt-2">
-                <h3 className="font-bold">Distance</h3>
-                <div className="grid grid-cols-5 gap-2 mt-1">
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
+        <ul className="product-suggestions mt-10 grid grid-cols-1 gap-6 items-center h-full">
+          {product?.handle === '01-iron-set' ?
+            <div className="border-[1px] border-slate-200 max-w-lg w-full m-auto">
+              <div className="p-6 h-full">
+                <div className="mt-4 w-full flex justify-center">
+                  <img className="w-full max-w-44 h-auto object-cover" src={product?.images?.edges[3]?.node?.source} />
                 </div>
-              </div>
-              <div className="mt-2">
-                <h3 className="font-bold">Forgiveness</h3>
-                <div className="grid grid-cols-5 gap-2 mt-1">
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
+                <h2 className="text-center font-bold mt-4 text-lg">{product?.title}</h2>
+                <div class="flex gap-6 mt-8">
+                  <h3 className="font-bold">Type</h3>
+                  <p>Distance Iron</p>
                 </div>
-              </div>
-              <div className="mt-2 pb-4">
-                <h3 className="font-bold">Workability</h3>
-                <div className="grid grid-cols-5 gap-2 mt-1">
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-red-700"></div>
-                  <div className="w-full h-1 bg-gray-400"></div>
-                  <div className="w-full h-1 bg-gray-400"></div>
-                  <div className="w-full h-1 bg-gray-400"></div>
+                <div className="mt-2">
+                  <h3 className="font-bold">Distance</h3>
+                  <div className="grid grid-cols-5 gap-2 mt-1">
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                  </div>
                 </div>
+                <div className="mt-2">
+                  <h3 className="font-bold">Forgiveness</h3>
+                  <div className="grid grid-cols-5 gap-2 mt-1">
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                  </div>
+                </div>
+                <div className="mt-2 pb-4">
+                  <h3 className="font-bold">Workability</h3>
+                  <div className="grid grid-cols-5 gap-2 mt-1">
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-red-700"></div>
+                    <div className="w-full h-1 bg-gray-400"></div>
+                    <div className="w-full h-1 bg-gray-400"></div>
+                    <div className="w-full h-1 bg-gray-400"></div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-y-2 border-t-[1px] border-slate-200 py-4">
+                  <h3 className="font-bold">7 Iron loft</h3>
+                  <p>30</p>
+                  <h3 className="font-bold">Irons in set</h3>
+                  <p>4 to P</p>
+                  <h3 className="font-bold">Who should play</h3>
+                  <p>High to Mid Handicap</p>
+                </div>
+                <div className="grid grid-cols-2 gap-y-2 border-t-[1px] border-slate-200 py-4 mb-2">
+                  <h3 className="font-bold">7 Iron offset</h3>
+                  <p>3.4mm</p>
+                  <h3 className="font-bold">7 Iron blade length</h3>
+                  <p>79.5mm</p>
+                  <h3 className="font-bold">7 Iron top line thickness</h3>
+                  <p>8mm</p>
+                </div>
+                <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${product?.handle}`} target="_top">
+                  View Set
+                </a>
               </div>
-              <div className="grid grid-cols-2 gap-y-2 border-t-[1px] border-slate-200 py-4">
-                <h3 className="font-bold">7 Iron loft</h3>
-                <p>30</p>
-                <h3 className="font-bold">Irons in set</h3>
-                <p>4 to P</p>
-                <h3 className="font-bold">Who should play</h3>
-                <p>High to Mid Handicap</p>
-              </div>
-              <div className="grid grid-cols-2 gap-y-2 border-t-[1px] border-slate-200 py-4 mb-2">
-                <h3 className="font-bold">7 Iron offset</h3>
-                <p>3.4mm</p>
-                <h3 className="font-bold">7 Iron blade length</h3>
-                <p>79.5mm</p>
-                <h3 className="font-bold">7 Iron top line thickness</h3>
-                <p>8mm</p>
-              </div>
-              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[0]?.handle}`} target="_top">
-                View Set
-              </a>
             </div>
-          </div>
-          <div className="border-[1px] border-slate-200">
+            : product?.handle === '01t-iron-set' ?
+            <div className="border-[1px] border-slate-200">
             <div className="p-6 h-full">
               <div className="mt-4 w-full flex justify-center">
-                <img className="w-full max-w-44 h-auto object-cover" src={products[1]?.images?.edges[6]?.node?.source} />
+                <img className="w-full max-w-44 h-auto object-cover" src={product?.images?.edges[6]?.node?.source} />
               </div>
-              <h2 className="text-center font-bold mt-4 text-lg">{products[1]?.title}</h2>
+              <h2 className="text-center font-bold mt-4 text-lg">{product?.title}</h2>
               <div class="flex gap-6 mt-8">
                 <h3 className="font-bold">Type</h3>
                 <p>Player's Distance Iron</p>
@@ -176,11 +175,14 @@ const Results = () => {
                 <h3 className="font-bold">7 Iron top line thickness</h3>
                 <p>7mm</p>
               </div>
-              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${products[1]?.handle}`} target="_top">
+              <a className="flex justify-center max-w-32 m-auto bg-black py-2 px-8 text-white" href={`https://caleygolf.com/products/${product?.handle}`} target="_top">
                 View Set
               </a>
             </div>
           </div>
+          :
+          null
+          }
         </ul>
       </>
       :
