@@ -19,10 +19,6 @@ const Results = () => {
 
   const products = [ironSet, ironTSet]
 
-  useEffect(() => {
-    console.log(graphite)
-  }, [])
-
   return (
     <div className="quiz-results-container">
       {customizations?.length > 0 ?

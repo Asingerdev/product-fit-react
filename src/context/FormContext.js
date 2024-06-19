@@ -111,7 +111,6 @@ export const FormProvider = ({ children }) => {
         
         const selectedAnswers = Object.values(data).flat()
 
-        console.log(selectedAnswers)
         setLoading(true)
 
         const response = await fetchRecommendedProducts(selectedAnswers)
