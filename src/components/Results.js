@@ -60,7 +60,7 @@ const Results = () => {
             <div className="border-[1px] border-slate-200 max-w-lg w-full m-auto">
               <div className="p-6 h-full">
                 <div className="mt-4 w-full flex justify-center">
-                  <img className="w-full max-w-44 h-auto object-cover" src={product?.images?.edges[3]?.node?.source} />
+                  <img className="w-full max-w-44 h-auto object-cover" src={product?.resultsImage} />
                 </div>
                 <h2 className="text-center font-bold mt-4 text-lg">{product?.title}</h2>
                 <div class="flex gap-6 mt-8">
@@ -122,7 +122,7 @@ const Results = () => {
             <div className="border-[1px] border-slate-200">
             <div className="p-6 h-full">
               <div className="mt-4 w-full flex justify-center">
-                <img className="w-full max-w-44 h-auto object-cover" src={product?.images?.edges[6]?.node?.source} />
+                <img className="w-full max-w-44 h-auto object-cover" src={product?.resultsImage} />
               </div>
               <h2 className="text-center font-bold mt-4 text-lg">{product?.title}</h2>
               <div class="flex gap-6 mt-8">
