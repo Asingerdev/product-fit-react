@@ -8,6 +8,8 @@ const Select = ({ questionId, answers }) => {
 
   const [selectedValue, setSelectedValue] = useState(answers[0]?.node?.id)
 
+  const icon = answers[0]?.node?.icon
+
   const handleSelectChange = (e) => {
     setSelectedValue(e.target.value)
     handleChange(e)
@@ -28,7 +30,9 @@ const Select = ({ questionId, answers }) => {
             )
           })}
         </select>
-        <img className="w-full h-auto object-cover mt-2" src={answers[0]?.node?.icon} alt="Wrist to floor measurement graphic" />
+        {icon && 
+          <img className="w-full h-auto object-cover mt-2" src={answers[0]?.node?.icon} alt="Wrist to floor measurement graphic" />
+        }
     </>
   )
 }
