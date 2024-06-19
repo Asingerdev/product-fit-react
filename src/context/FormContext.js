@@ -14,7 +14,7 @@ export const FormProvider = ({ children }) => {
   const [recommendedProducts, setRecommendedProducts] = useState([])
   const [customizations, setCustomizations] = useState([])
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [page, setPage] = useState(11)
+  const [page, setPage] = useState(0)
   const [data, setData] = useState({})
 
   // Fetch quiz by slug and store quiz questions

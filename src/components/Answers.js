@@ -2,6 +2,7 @@ import CheckboxGroup from './CheckboxGroup'
 import Email from './Email'
 import RadioGroup from './RadioGroup'
 import Range from './Range'
+import Select from './Select'
 
 const Answers = ({ question, answers }) => {
 
@@ -13,6 +14,8 @@ const Answers = ({ question, answers }) => {
       return <RadioGroup answers={answers} questionId={questionId} />
     case 'multiselect':
       return <CheckboxGroup answers={answers} questionId={questionId} />
+    case 'measurement':
+      return <Select answers={answers} questionId={questionId} />
     case 'slider':
       return <Range answers={answers} name={questionId} />
     case 'email':
