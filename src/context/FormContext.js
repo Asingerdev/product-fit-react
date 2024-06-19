@@ -14,7 +14,7 @@ export const FormProvider = ({ children }) => {
   const [recommendedProducts, setRecommendedProducts] = useState([])
   const [customizations, setCustomizations] = useState([])
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(11)
   const [data, setData] = useState({})
 
   // Fetch quiz by slug and store quiz questions
@@ -96,6 +96,19 @@ export const FormProvider = ({ children }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        // Send email to Klaviyo
+        const data = {
+            g: process.env.REACT_APP_KLAVIYO_LIST_ID,
+            email: email ?? ''
+        }
+
+        const urlData = new URLSearchParams(data)
+        fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
+            method: 'POST',
+            body: urlData,
+          }).then((response) => response.json()).then((res) => console.log(res))
+        
         const selectedAnswers = Object.values(data).flat()
 
         console.log(selectedAnswers)

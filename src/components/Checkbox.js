@@ -9,7 +9,7 @@ const Checkbox = ({ answer, checked, checkHandler, icon, value }) => {
           <label className="custom-checkbox-label flex flex-col items-center cursor-pointer" htmlFor={value}>
             <input type="checkbox" id={value} checked={checked} onChange={checkHandler} />
             <div className="custom-checkbox-container border-2 rounded-full flex justify-center items-center w-20 h-20 border-black">
-              <img class="custom-checkbox-icon" src={icon} alt="" />
+              <img className="custom-checkbox-icon" src={icon} alt="" />
             </div>
             <span className="mt-1.5 text-center" htmlFor={value}>{answer?.node?.text}</span>
           </label>
