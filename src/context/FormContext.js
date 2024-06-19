@@ -113,9 +113,6 @@ export const FormProvider = ({ children }) => {
         console.log(selectedQuestions)
         const selectedAnswerIds = selectedQuestions?.map(question => data[question?.node?.id])
 
-        console.log(selectedAnswerIds)
-        console.log(selectedAnswerIds)
-
         setLoading(true)
 
         const response = await fetchRecommendedProducts(selectedAnswerIds)
