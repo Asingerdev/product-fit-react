@@ -119,7 +119,7 @@ const Results = () => {
               </div>
             </div>
             : product?.handle === '01t-iron-set' ?
-            <div className="border-[1px] border-slate-200">
+            <div className="border-[1px] border-slate-200 max-w-lg w-full m-auto">
             <div className="p-6 h-full">
               <div className="mt-4 w-full flex justify-center">
                 <img className="w-full max-w-44 h-auto object-cover" src={product?.resultsImage} alt={product?.title} />
