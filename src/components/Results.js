@@ -44,7 +44,7 @@ const Results = () => {
             {customizations[9] && (
               <>
                 <span>Lie angle </span>
-                <span className="font-bold"> {customizations[9]}. </span>
+                <span className="font-bold lowercase"> {customizations[9]}. </span>
               </>
             )}
             {customizations[10] && (
