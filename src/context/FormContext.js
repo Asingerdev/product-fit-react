@@ -97,10 +97,21 @@ export const FormProvider = ({ children }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        const answerIds = Object.values(data)
+
+        const customizations = questions.map((question, ix) => {
+            const answer = question?.node?.answers?.edges.find(answer => answer?.node?.id === answerIds[ix])
+            return answer?.node?.customization ? answer?.node?.customization : ''
+        })
+
         // Send email to Klaviyo
+        const klaviyoCustomization = customizations.filter(e => e).join(', ')
+
         const klaviyoData = {
             g: process.env.REACT_APP_KLAVIYO_LIST_ID,
-            email: email ?? ''
+            email: email ?? '',
+            "$fields": "Fitting Recommendation",
+            "Fitting Reccomendation": klaviyoCustomization ?? '',
         }
 
         const urlData = new URLSearchParams(klaviyoData)
@@ -110,7 +121,7 @@ export const FormProvider = ({ children }) => {
           }).then((response) => response.json()).then((res) => console.log(res))
         
         const selectedQuestions = questions?.filter(question => question?.node?.resultType === 'age' || question?.node?.resultType === 'gender' || question?.node?.resultType === 'handicap')
-        console.log(selectedQuestions)
+
         const selectedAnswerIds = selectedQuestions?.map(question => data[question?.node?.id])
 
         setLoading(true)
@@ -123,13 +134,6 @@ export const FormProvider = ({ children }) => {
         const recommendedProducts = Object.values(parsedResponse)
 
         setRecommendedProducts(recommendedProducts)
-    
-        const answerIds = Object.values(data)
-
-        const customizations = questions.map((question, ix) => {
-            const answer = question?.node?.answers?.edges.find(answer => answer?.node?.id === answerIds[ix])
-            return answer?.node?.customization ? answer?.node?.customization : ''
-        })
 
         setCustomizations(customizations)
 
