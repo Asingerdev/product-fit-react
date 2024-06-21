@@ -3,7 +3,7 @@ import useFormContext from '../hooks/useFormContext';
 
 const Results = () => {
 
-  const {customizations, recommendedProducts} = useFormContext()
+  const {customizations, lieAngle, recommendedProducts} = useFormContext()
 
   const productSuggestions = recommendedProducts.filter(product => product?.recommendedProduct?.productSuggestion).map(product => {
     return product?.recommendedProduct?.productSuggestion
@@ -41,10 +41,10 @@ const Results = () => {
                 <span className="lowercase"> flex. </span>
               </>
             )}
-            {customizations[9] && (
+            {lieAngle && (
               <>
                 <span>Lie angle </span>
-                <span className="font-bold lowercase"> {customizations[9]}. </span>
+                <span className="font-bold lowercase"> {lieAngle}. </span>
               </>
             )}
             {customizations[10] && (

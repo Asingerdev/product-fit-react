@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react"
 import fetchQuiz from '../services/quiz'
 import fetchRecommendedProducts from "../services/recommendedProducts"
 import saveSelections from "../services/saveSelection"
+import calculateLieAngle from "../services/calculateLieAngle"
 
 const FormContext = createContext({})
 
@@ -13,6 +14,7 @@ export const FormProvider = ({ children }) => {
   const [quizId, setQuizId] = useState('')
   const [recommendedProducts, setRecommendedProducts] = useState([])
   const [customizations, setCustomizations] = useState([])
+  const [lieAngle, setLieAngle] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [page, setPage] = useState(0)
   const [data, setData] = useState({})
@@ -135,6 +137,12 @@ export const FormProvider = ({ children }) => {
 
         setRecommendedProducts(recommendedProducts)
 
+        const lieAngle = calculateLieAngle(data, questions)
+
+        console.log(lieAngle)
+
+        setLieAngle(lieAngle)
+
         setCustomizations(customizations)
 
         setIsSubmitted(true)
@@ -167,7 +175,8 @@ export const FormProvider = ({ children }) => {
             handleSubmit, 
             isSubmitted,
             recommendedProducts,
-            customizations
+            customizations,
+            lieAngle
             }}>
             {children}
         </FormContext.Provider>

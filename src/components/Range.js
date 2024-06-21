@@ -10,7 +10,7 @@ const Range = ({ answers, name }) => {
   
   const [rangeValue, setRangeValue] = useState(min)
 
-  const { data, page, handleRangeChange } = useFormContext()
+  const { data, page, questions, calculateLieAngle, handleRangeChange } = useFormContext()
 
   const handleLocalRangeChange = (e) => {
     setRangeValue(e.target.value)
