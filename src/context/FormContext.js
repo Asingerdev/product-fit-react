@@ -23,7 +23,7 @@ export const FormProvider = ({ children }) => {
   const getQuiz = async () => {
     setLoading(true)
 
-    const response = await fetchQuiz('product-quiz-new')
+    const response = await fetchQuiz(process.env.REACT_APP_QUIZ_SLUG)
 
     setLoading(false)
 
