@@ -63,7 +63,7 @@ const Results = () => {
                   <img className="w-full max-w-44 h-auto object-cover" src={product?.resultsImage} alt={product?.title} />
                 </div>
                 <h2 className="text-center font-bold mt-4 text-lg">{product?.title}</h2>
-                <div class="flex gap-6 mt-8">
+                <div className="flex gap-6 mt-8">
                   <h3 className="font-bold">Type</h3>
                   <p>Distance Iron</p>
                 </div>

@@ -3,6 +3,10 @@ import fetchQuiz from '../services/quiz'
 import fetchRecommendedProducts from "../services/recommendedProducts"
 import saveSelections from "../services/saveSelection"
 import calculateLieAngle from "../services/calculateLieAngle"
+import ReactGA from 'react-ga4';
+
+const trackingId = 'G-DBKR5RNKLT'
+ReactGA.initialize(trackingId);
 
 const FormContext = createContext({})
 
@@ -53,7 +57,6 @@ export const FormProvider = ({ children }) => {
 
     const handleChange = e => {
         const name = e.target.name
-
         const value = e.target.value
 
         setData(prevData => ({
@@ -107,13 +110,13 @@ export const FormProvider = ({ children }) => {
         })
 
         // Send email to Klaviyo
-        const klaviyoCustomization = customizations.filter(e => e).join(', ')
+        const fittingCustomization = customizations.filter(e => e).join(', ')
 
         const klaviyoData = {
             g: process.env.REACT_APP_KLAVIYO_LIST_ID,
             email: email ?? '',
-            "$fields": "Fitting Recommendation",
-            "Fitting Reccomendation": klaviyoCustomization ?? '',
+            "$fields": "$fitting_customization",
+            "$fitting_customization": fittingCustomization ?? '',
         }
 
         const urlData = new URLSearchParams(klaviyoData)
@@ -139,11 +142,14 @@ export const FormProvider = ({ children }) => {
 
         const lieAngle = calculateLieAngle(data, questions)
 
-        console.log(lieAngle)
-
         setLieAngle(lieAngle)
 
         setCustomizations(customizations)
+
+        ReactGA.event({
+            category: 'User',
+            action: 'Completed quiz'
+          });
 
         setIsSubmitted(true)
 
