@@ -3,10 +3,7 @@ import fetchQuiz from '../services/quiz'
 import fetchRecommendedProducts from "../services/recommendedProducts"
 import saveSelections from "../services/saveSelection"
 import calculateLieAngle from "../services/calculateLieAngle"
-import ReactGA from 'react-ga4';
-
-const trackingId = 'G-DBKR5RNKLT'
-ReactGA.initialize(trackingId);
+import { trackGAEvent } from "../utils/google-analytics";
 
 const FormContext = createContext({})
 
@@ -146,10 +143,7 @@ export const FormProvider = ({ children }) => {
 
         setCustomizations(customizations)
 
-        ReactGA.event({
-            category: 'User',
-            action: 'Completed quiz'
-          });
+        trackGAEvent('User', 'Completed quiz');
 
         setIsSubmitted(true)
 
