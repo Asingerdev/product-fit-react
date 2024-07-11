@@ -3,14 +3,9 @@ import Form from './Form'
 import Results from './Results';
 import { useEffect } from "react"
 import useFormContext from '../hooks/useFormContext';
-import { trackGAEvent } from "../utils/google-analytics";
 import '../index.css'
 
 function Quiz() {
-
-  useEffect(() => {
-    trackGAEvent('User', 'begin_quiz');
-  }, []);
 
   const { isSubmitted } = useFormContext()
 
