@@ -9,7 +9,7 @@ import '../index.css'
 function Quiz() {
 
   useEffect(() => {
-    trackGAEvent('User', 'Started quiz');
+    trackGAEvent('User', 'begin_quiz');
   }, []);
 
   const { isSubmitted } = useFormContext()

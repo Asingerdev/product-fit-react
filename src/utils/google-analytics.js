@@ -4,7 +4,7 @@ const initializeGA = () => {
   ReactGA.initialize(process.env.REACT_APP_GA_MEASUREMENT_ID);
 };
 
-const trackGAEvent = (category, action, label) => {
+const trackGAEvent = (category, action) => {
   // Send GA4 Event
   ReactGA.event({
     category: category,

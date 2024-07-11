@@ -143,7 +143,7 @@ export const FormProvider = ({ children }) => {
 
         setCustomizations(customizations)
 
-        trackGAEvent('User', 'Completed quiz');
+        trackGAEvent('User', 'finish_quiz');
 
         setIsSubmitted(true)
 
