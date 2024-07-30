@@ -7,6 +7,10 @@ import '../index.css'
 
 function Quiz() {
 
+  useEffect(() => {
+    window.dataLayer.push({'event': 'started_quiz'})
+  }, [])
+
   const { isSubmitted } = useFormContext()
 
   return (

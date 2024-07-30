@@ -3,7 +3,6 @@ import fetchQuiz from '../services/quiz'
 import fetchRecommendedProducts from "../services/recommendedProducts"
 import saveSelections from "../services/saveSelection"
 import calculateLieAngle from "../services/calculateLieAngle"
-import ReactGA from 'react-ga4';
 
 const FormContext = createContext({})
 
@@ -99,6 +98,8 @@ export const FormProvider = ({ children }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        window.dataLayer.push({'event': 'completed_quiz'})
+
         const answerIds = Object.values(data)
 
         const customizations = questions.map((question, ix) => {
@@ -142,11 +143,6 @@ export const FormProvider = ({ children }) => {
         setLieAngle(lieAngle)
 
         setCustomizations(customizations)
-
-        ReactGA.event({
-            category: 'User',
-            action: 'finish_quiz'
-        });
 
         setIsSubmitted(true)
 
