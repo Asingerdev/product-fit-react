@@ -161,7 +161,7 @@ const Results = () => {
               </div>
               <div className="grid grid-cols-2 gap-y-2 border-t-[1px] border-slate-200 py-4">
                 <h3 className="font-bold">7 Iron loft</h3>
-                <p>32</p>
+                <p>30</p>
                 <h3 className="font-bold">Irons in set</h3>
                 <p>4 to P</p>
                 <h3 className="font-bold">Who should play</h3>
